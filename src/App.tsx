@@ -1,3 +1,9 @@
+import { SPbMap } from './pages/spb-map';
+
 export const App = () => {
-  return <div>Привет мир</div>;
+  return (
+    <>
+      <SPbMap />
+    </>
+  );
 };
