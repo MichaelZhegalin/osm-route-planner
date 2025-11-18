@@ -1,61 +1,69 @@
 {
-  "name": "my-app",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix",
-    "check:ts": "tsc --noEmit",
-    "check:prettier": "prettier --check .",
-    "check": "npm run check:ts && npm run check:prettier",
-    "prepare": "husky install"
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx}": [
-      "eslint --fix",
-      "prettier --write",
-      "npm run check:ts --if-present"
-    ],
-    "*.{json,md,css,scss}": [
-      "prettier --write"
-    ]
-  },
-  "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@emotion/server": "^11.11.0",
-    "@mantine/core": "^8.3.7",
-    "@mantine/hooks": "^8.3.7",
-    "leaflet": "^1.9.4",
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1",
-    "react-leaflet": "^5.0.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.36.0",
-    "@types/leaflet": "^1.9.21",
-    "@types/node": "^24.6.0",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.2.2",
-    "@typescript-eslint/eslint-plugin": "^8.46.3",
-    "@typescript-eslint/parser": "^8.46.3",
-    "@vitejs/plugin-react": "^5.0.4",
-    "eslint": "^9.39.1",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-import": "^2.32.0",
-    "eslint-plugin-prettier": "^5.5.4",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.22",
-    "globals": "^16.4.0",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.2.6",
-    "prettier": "^3.6.2",
-    "typescript": "~5.9.3",
-    "typescript-eslint": "^8.45.0",
-    "vite": "^7.1.7"
-  }
+    "name": "my-app",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "lint": "eslint . --ext .ts,.tsx",
+        "lint:fix": "eslint . --ext .ts,.tsx --fix",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "lint:css": "stylelint \"src/**/*.css\"",
+        "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
+        "check:ts": "tsc --noEmit",
+        "check:prettier": "prettier --check .",
+        "check:css": "stylelint \"src/**/*.css\"",
+        "check": "tsc --noEmit -p tsconfig.app.json && tsc --noEmit -p tsconfig.node.json && npm run check:prettier && npm run check:css",
+        "prepare": "husky install"
+    },
+    "lint-staged": {
+        "*.{ts,tsx,js,jsx}": [
+            "eslint --fix",
+            "prettier --write",
+            "npm run check:ts --if-present"
+        ],
+        "*.{json,md,css,scss}": [
+            "prettier --write",
+            "stylelint --fix"
+        ]
+    },
+    "dependencies": {
+        "@emotion/react": "^11.14.0",
+        "@emotion/server": "^11.11.0",
+        "@mantine/core": "^8.3.7",
+        "@mantine/hooks": "^8.3.7",
+        "leaflet": "^1.9.4",
+        "react": "^19.1.1",
+        "react-dom": "^19.1.1",
+        "react-leaflet": "^5.0.0"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.36.0",
+        "@types/leaflet": "^1.9.21",
+        "@types/node": "^24.6.0",
+        "@types/react": "^19.2.2",
+        "@types/react-dom": "^19.2.2",
+        "@typescript-eslint/eslint-plugin": "^8.46.3",
+        "@typescript-eslint/parser": "^8.46.3",
+        "@vitejs/plugin-react": "^5.0.4",
+        "eslint": "^9.39.1",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-import": "^2.32.0",
+        "eslint-plugin-prettier": "^5.5.4",
+        "eslint-plugin-react": "^7.37.5",
+        "eslint-plugin-react-hooks": "^5.2.0",
+        "eslint-plugin-react-refresh": "^0.4.22",
+        "globals": "^16.4.0",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.2.6",
+        "prettier": "^3.6.2",
+        "stylelint": "^16.9.0",
+        "stylelint-config-standard": "^36.0.0",
+        "typescript": "~5.9.3",
+        "typescript-eslint": "^8.45.0",
+        "vite": "^7.1.7"
+    }
 }
